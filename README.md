@@ -87,15 +87,3 @@ After everything worked as expected, I deleted the stack to clean up.
 
 ---
 
-## Summary
-
-|-------------------------------------|
-| GitHub repository created           | 
-| CloudFormation template created     |
-| CodePipeline created and executed   | 
-| S3 bucket and SNS topic provisioned | 
-| Verified in AWS Console             | 
-| Deleted stack for cleanup           | 
-
----
-
