@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'CloudFormation Template for Lab 3 - Jithin 8876281'
+
+Parameters:
+  BucketName:
+    Type: String
+    Default: jithin-lab3-bucket
+    Description: Name of the S3 bucket
+
+  VersioningStatus:
+    Type: String
+    Default: Suspended
+    AllowedValues:
+      - Enabled
+      - Suspended
+    Description: Versioning configuration for the S3 bucket
+
+Resources:
+  Lab3S3Bucket8876281:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      VersioningConfiguration:
+        Status: !Ref VersioningStatus
+      Tags:
+        - Key: Environment
+          Value: Lab3
+        - Key: Owner
+          Value: JithinJyothi8876281
+
+  Lab3SNSTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: jithin-lab3-topic
+      Tags:
+        - Key: Owner
+          Value: JithinJyothi
+
+Outputs:
+  BucketName:
+    Description: Name of the created S3 bucket
+    Value: !Ref Lab3S3Bucket8876281
+
+  TopicArn:
+    Description: ARN of the created SNS topic
+    Value: !Ref Lab3SNSTopic
